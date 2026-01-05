@@ -2,6 +2,8 @@
 
 A full-stack web application for managing products with Create, Read, Update, and Delete operations. Built with **Express.js** backend and **React + Vite** frontend.
 
+🔗 **Live Demo:** [https://proucts-rest-api.onrender.com](https://proucts-rest-api.onrender.com)
+
 ## 📋 Table of Contents
 
 - [Features](#features)
@@ -34,7 +36,6 @@ A full-stack web application for managing products with Create, Read, Update, an
 - **Express.js** - Web framework
 - **MongoDB** - NoSQL database
 - **Mongoose** - MongoDB object modeling
-- **CORS** - Cross-Origin Resource Sharing
 
 ### Frontend
 - **React 18** - UI library
@@ -109,32 +110,19 @@ npm install
 
 ### 1. Environment Variables
 
-Create a `.env` file in the root directory:
+Create a `.env` file in the root directory with the following variables:
 
 ```env
-MONGO_URI=mongodb+srv://username:password@cluster.mongodb.net/products
+MONGO_URI=your_mongodb_connection_string
 PORT=5000
 NODE_ENV=development
 ```
 
-Replace `username`, `password`, and `cluster` with your MongoDB Atlas credentials.
+**Get your MongoDB URI:**
+- For MongoDB Atlas (Cloud): [Create a free account](https://www.mongodb.com/cloud/atlas) and get your connection string
+- For Local MongoDB: Use `mongodb://localhost:27017/products`
 
-**For local MongoDB:**
-```env
-MONGO_URI=mongodb://localhost:27017/products
-```
-
-### 2. MongoDB Setup
-
-**Using MongoDB Atlas (Cloud):**
-1. Create account at [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
-2. Create a new cluster
-3. Get connection string and add to `.env`
-
-**Using Local MongoDB:**
-1. Install MongoDB locally
-2. Start MongoDB service: `mongod`
-3. Use connection string: `mongodb://localhost:27017/products`
+⚠️ **Important:** Never commit `.env` file to git. Add it to `.gitignore`
 
 ## 🏃 Running the Application
 
@@ -145,25 +133,11 @@ MONGO_URI=mongodb://localhost:27017/products
 cd backend
 npm run dev
 ```
-Server runs on `http://localhost:5000`
 
 **Terminal 2 - Frontend:**
 ```bash
 cd frontend
 npm run dev
-```
-Frontend runs on `http://localhost:5173`
-
-### Production Mode
-
-```bash
-# Build frontend
-cd frontend
-npm run build
-
-# Run backend in production
-cd ../backend
-NODE_ENV=production npm start
 ```
 
 ## 📡 API Endpoints
@@ -251,14 +225,9 @@ PORT=5001 npm start
 - Test connection: `mongosh "your_connection_string"`
 
 ### CORS Error
-- Backend should have `cors()` middleware enabled
-- Frontend API calls use correct URL: `http://localhost:5000/api/products`
-
-### Frontend Not Connecting to Backend
-- Ensure backend is running on `http://localhost:5000`
+### CORS Error
+- Verify backend is running and accessible
 - Check browser console for network errors
-- Verify CORS is enabled in `server.js`
-
 ### Price Validation Error
 - Price must be sent as a **number**, not string
 - Frontend converts: `Number(newProduct.price)`
@@ -269,10 +238,9 @@ PORT=5001 npm start
 ```bash
 npm start       # Run server
 npm run dev     # Run with nodemon (auto-reload)
-```
-
-### Frontend
-```bash
+### CORS Error
+- Verify backend is running and accessible
+- Check browser console for network errors
 npm run dev     # Start dev server
 npm run build   # Build for production
 npm run preview # Preview production build
@@ -287,30 +255,11 @@ npm run lint    # Run ESLint
 - Use HTTPS in production
 - Add authentication for real-world applications
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create feature branch: `git checkout -b feature/AmazingFeature`
-3. Commit changes: `git commit -m 'Add AmazingFeature'`
-4. Push to branch: `git push origin feature/AmazingFeature`
-5. Open a Pull Request
-
-## 📄 License
-
-This project is open source and available under the MIT License.
 
 ## 👤 Author
 
 **Rosh-codes**
 - GitHub: [@Rosh-codes](https://github.com/Rosh-codes)
 
-## 🆘 Support
 
-For issues and questions:
-1. Check the [Troubleshooting](#troubleshooting) section
-2. Open an issue on [GitHub Issues](https://github.com/Rosh-codes/Proucts-Rest-API/issues)
-3. Check existing issues and discussions
 
----
-
-Made with ❤️ by Rosh-codes
